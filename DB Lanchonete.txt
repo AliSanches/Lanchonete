@@ -1,0 +1,77 @@
+CREATE DATABASE lanchonete
+CHARSET UTF8 COLLATE UTF8_GENERAL_CI;
+
+USE lanchonete;
+
+CREATE TABLE lanche (
+	id_lanche INT AUTO_INCREMENT PRIMARY KEY,
+	nome_lanche VARCHAR(150) NOT NULL UNIQUE,
+	descricao_lanche VARCHAR(150) NOT NULL,
+	preco_lanche DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE ingrediente (
+	id_ingrediente INT PRIMARY KEY,
+	nome_ingrediente VARCHAR(150) NOT NULL UNIQUE,
+	quantidade_estoque INT NOT NULL,
+	preco_ingrediente DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE cliente (
+	id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(70) NOT NULL,
+	cpf VARCHAR(20) NOT NULL UNIQUE,
+	telefone VARCHAR(30),
+	celular VARCHAR(30) NOT NULL,
+	estado VARCHAR(20) NOT NULL,
+	cidade VARCHAR(45) NOT NULL,
+	bairro VARCHAR(50) NOT NULL,
+	rua VARCHAR(40) NOT NULL,
+	numero INT NOT NULL
+);
+
+CREATE TABLE venda (
+	id_venda INT AUTO_INCREMENT PRIMARY KEY,
+	data_venda DATETIME NOT NULL,
+	id_cliente INT,
+	id_lanche INT,
+	total_venda DECIMAL(10,2) NOT NULL,
+	FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
+	FOREIGN KEY (id_lanche) REFERENCES lanche(id_lanche)
+);
+
+CREATE TABLE usuario (
+	id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+	nome_completo VARCHAR(70) NOT NULL,
+	cpf VARCHAR(20) NOT NULL UNIQUE,
+	email VARCHAR(70) NOT NULL,
+	nome_login VARCHAR(40) NOT NULL,
+	senha VARCHAR(20) NOT NULL,
+	nivel_acesso VARCHAR(20) NOT NULL,
+	telefone VARCHAR(30),
+	celular VARCHAR(30) NOT NULL,
+	estado VARCHAR(20) NOT NULL,
+	cidade VARCHAR(45) NOT NULL,
+	bairro VARCHAR(50) NOT NULL,
+	rua VARCHAR(40) NOT NULL,
+	numero INT NOT NULL
+);
+
+CREATE TABLE itens_venda (
+	id_itens_venda INT AUTO_INCREMENT PRIMARY KEY,
+	venda_id INT,
+	id_ingrediente INT NOT NULL,
+	quantidade_utilizada INT NOT NULL,
+	FOREIGN KEY (id_ingrediente) REFERENCES ingrediente(id_ingrediente),
+	FOREIGN KEY (venda_id) REFERENCES venda(id_venda)
+);
+
+CREATE TABLE itens_venda_lanche (
+	id_itens_venda INT AUTO_INCREMENT PRIMARY KEY,
+	venda_id INT,
+	id_lanche INT NOT NULL,
+	quantidade_utilizada INT NOT NULL,
+	subtotal DECIMAL(10,2) NOT NULL,
+	FOREIGN KEY (venda_id) REFERENCES venda(id_venda),
+	FOREIGN KEY (id_lanche) REFERENCES lanche(id_lanche)
+);

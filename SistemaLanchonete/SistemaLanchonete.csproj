@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3DC90357-79F2-4E72-89B6-C5CEBB18C9DB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SistemaLanchonete</RootNamespace>
+    <AssemblyName>SistemaLanchonete</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.7.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.6.7.9\lib\net20\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="br.lanchonete.view\Altlanche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\Altlanche.Designer.cs">
+      <DependentUpon>Altlanche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\AltIntegrediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\AltIntegrediente.Designer.cs">
+      <DependentUpon>AltIntegrediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.conexao\Conexao.cs" />
+    <Compile Include="br.lanchonete.DAO\IngredienteDAO.cs" />
+    <Compile Include="br.lanchonete.DAO\LancheDAO.cs" />
+    <Compile Include="br.lanchonete.estilo\BotaoArredondado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.model\Lanche.cs" />
+    <Compile Include="br.lanchonete.view\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\CadIngrediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\CadIngrediente.Designer.cs">
+      <DependentUpon>CadIngrediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\DelIngrediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\DelIngrediente.Designer.cs">
+      <DependentUpon>DelIngrediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\Ingrediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\Ingrediente.Designer.cs">
+      <DependentUpon>Ingrediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.model\Ingrediente.cs" />
+    <Compile Include="br.lanchonete.estilo\DGVestilo.cs" />
+    <Compile Include="br.lanchonete.view\Logo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\Logo.Designer.cs">
+      <DependentUpon>Logo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\CadLanche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\CadLanche.Designer.cs">
+      <DependentUpon>CadLanche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\DelLanche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\DelLanche.Designer.cs">
+      <DependentUpon>DelLanche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\Lanches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\Lanches.Designer.cs">
+      <DependentUpon>Lanches.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormAltUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormAltUsuario.Designer.cs">
+      <DependentUpon>FormAltUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormCadUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormCadUsuario.Designer.cs">
+      <DependentUpon>FormCadUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormDelUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormDelUsuario.Designer.cs">
+      <DependentUpon>FormDelUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormUsuario.Designer.cs">
+      <DependentUpon>FormUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormCliente.Designer.cs">
+      <DependentUpon>FormCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.model\Cliente.cs" />
+    <Compile Include="br.lanchonete.DAO\ClienteDAO.cs" />
+    <Compile Include="br.lanchonete.view\FormAltCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormAltCliente.Designer.cs">
+      <DependentUpon>FormAltCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormCadCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormCadCliente.Designer.cs">
+      <DependentUpon>FormCadCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormCadPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormCadPedido.Designer.cs">
+      <DependentUpon>FormCadPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormDelCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormDelCliente.Designer.cs">
+      <DependentUpon>FormDelCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormPagamento.Designer.cs">
+      <DependentUpon>FormPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormPedido.Designer.cs">
+      <DependentUpon>FormPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.model\ItensVenda.cs" />
+    <Compile Include="br.lanchonete.DAO\ItensVendaDAO.cs" />
+    <Compile Include="br.lanchonete.view\FormDetalhesVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormDetalhesVenda.Designer.cs">
+      <DependentUpon>FormDetalhesVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.lanchonete.view\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.lanchonete.model\ItensVendaLanche.cs" />
+    <Compile Include="br.lanchonete.DAO\ItensVendaLancheDAO.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="br.lanchonete.model\Usuario.cs" />
+    <Compile Include="br.lanchonete.DAO\UsuarioDAO.cs" />
+    <Compile Include="br.lanchonete.model\Venda.cs" />
+    <Compile Include="br.lanchonete.DAO\VendaDAO.cs" />
+    <EmbeddedResource Include="br.lanchonete.view\Altlanche.resx">
+      <DependentUpon>Altlanche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\AltIntegrediente.resx">
+      <DependentUpon>AltIntegrediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\Principal.aa-DJ.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\CadIngrediente.resx">
+      <DependentUpon>CadIngrediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\DelIngrediente.resx">
+      <DependentUpon>DelIngrediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\Ingrediente.resx">
+      <DependentUpon>Ingrediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\Logo.resx">
+      <DependentUpon>Logo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\CadLanche.resx">
+      <DependentUpon>CadLanche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\DelLanche.resx">
+      <DependentUpon>DelLanche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\Lanches.resx">
+      <DependentUpon>Lanches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormAltUsuario.resx">
+      <DependentUpon>FormAltUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormCadUsuario.resx">
+      <DependentUpon>FormCadUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormDelUsuario.resx">
+      <DependentUpon>FormDelUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormUsuario.resx">
+      <DependentUpon>FormUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormCliente.resx">
+      <DependentUpon>FormCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormAltCliente.resx">
+      <DependentUpon>FormAltCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormCadCliente.resx">
+      <DependentUpon>FormCadCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormCadPedido.resx">
+      <DependentUpon>FormCadPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormDelCliente.resx">
+      <DependentUpon>FormDelCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormPagamento.resx">
+      <DependentUpon>FormPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormPedido.resx">
+      <DependentUpon>FormPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormDetalhesVenda.resx">
+      <DependentUpon>FormDetalhesVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.lanchonete.view\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-grande-parcela-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-alinhar-pelo-topo-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excluir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estoque.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4124799-finance-report-graph-analysis-graph-report-sale-report-stock-report_113890.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\62941cardfilebox_109271.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_book_food_drink_icon_146855.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\choose-2_102347.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\systemusers_94754.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hambúrguer-de-carne-bovina-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lanche-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdicionarVermelho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\procurar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ingredientes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ingrediente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alterar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lixeira.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Atualiza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Modificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apagar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-burger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CadUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AltUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DelUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pedido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pedido2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CadPedido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdCarrinho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pagamento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dinheiro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Troco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Total.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escudo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarioLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cadeado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CadeadoLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserLogado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserLogado2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
